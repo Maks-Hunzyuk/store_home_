@@ -10,19 +10,17 @@
                     <h2 class="text-center mb-4">Авторизация</h2>
                     <form action="{% url 'users:login' %}" method="post">
                         {% csrf_token %}
-                        {% if form.non_field_errors %}
-                            <p>{{ form.non_field_errors }}</p>
-                        {% endif %}
                         <div class="mb-3">
-                            <label for="username" class="form-label">Имя пользователя</label>
+                            <label for="id_username" class="form-label">Имя пользователя</label>
                             <input type="text" class="form-control"
-                            value="{% if form.username value %}{{ form.username value }}{% endif %}"
-                            id="username" placeholder="Введите ваше имя пользователя" 
+                            value="{% if form.username.value %}{{ form.username.value }}{% endif %}"
+                            name="username"
+                            id="id_username" placeholder="Введите ваше имя пользователя" 
                             required>
                         </div>
                         <div class="mb-3">
-                            <label for="password" class="form-label">Пароль</label>
-                            <input type="password" class="form-control" id="password" placeholder="Введите ваш пароль" required>
+                            <label for="id_password" class="form-label">Пароль</label>
+                            <input type="password" class="form-control" name="password" id="id_password" placeholder="Введите ваш пароль" required>
                         </div>
                         <button type="submit" class="btn btn-dark btn-block">Войти</button>
                     </form>
