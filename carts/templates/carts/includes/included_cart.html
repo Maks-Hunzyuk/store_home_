@@ -1,4 +1,7 @@
 {% load static %}
+{% load carts_tags %}
+
+{% user_carts request as carts %}
 
 
 <div class="card mb-3 text-bg-light shadow-lg">
@@ -28,8 +31,8 @@
                     </div>
                     <div class="col p-0"><strong>{{ cart.products_price }} $</strong></div>
                     <div class="col p-0">
-                        <a href="{% url 'cart:cart_remove' %}" class="remove-from-cart" data-cart-id="">
-                            <img class="mx-1" src="{% static "deps/icons/trash3-fill.svg" %}"
+                        <a href="{% url 'cart:cart_remove' 1 %}" class="remove-from-cart" data-cart-id="">
+                            <img class="mx-1" src="{% static 'deps/icons/trash3-fill.svg' %}"
                                 alt="Catalog Icon" width="16" height="16">
                         </a>
                     </div>

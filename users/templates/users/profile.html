@@ -21,7 +21,7 @@
                                         alt="Аватар пользователя" class="img-fluid rounded-circle"
                                         style="max-width: 150px;">
                                     {% else %}
-                                        <img src="{% static "deps/images/baseavatar.jpg" %}"
+                                        <img src="{% static 'deps/images/baseavatar.jpg' %}"
                                         alt="Аватар пользователя" class="img-fluid rounded-circle"
                                         style="max-width: 150px;">
                                     {% endif %}
@@ -87,7 +87,7 @@
                     <div class=" bg-white p-4 mb-4 mx-2 rounded custom-shadow">
                         <h3 class="text-center mb-4">Корзина</h3>
                         <div class="container" id="cart-items-container">
-                            {% include "includes/included_cart.html" %}
+                            {% include "carts/includes/included_cart.html" %}
                         </div>
                         {% if carts %}
                             <a class="btn btn-dark" href="../orders/create_order.html">
@@ -101,7 +101,7 @@
                     <div class=" bg-white p-4 mb-4 mx-2 rounded custom-shadow">
                         <h3 class="text-center mb-4">Мои заказы</h3>
                         <!-- Разметка заказов -->
-                        {% include 'includes/included_cart.html' %}
+                        {% include 'carts/includes/included_cart.html' %}
                         <!-- Закончилась разметка заказов -->
                     </div>
                 </div>
