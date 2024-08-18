@@ -1,13 +1,13 @@
 from django.urls import path
 
-from users.views import login, registration, profile, logout, users_cart
+from users.views import UserLoginView, UserRegistrationView, UserProfileView, logout, UserCartView
 
 app_name = 'users'
 
 urlpatterns = [
-    path("login/", login, name='login'),
-    path("registration/", registration, name='registration'),
-    path("profile/", profile, name="profile"),
+    path("login/", UserLoginView.as_view(), name='login'),
+    path("registration/", UserRegistrationView.as_view(), name='registration'),
+    path("profile/", UserProfileView.as_view(), name="profile"),
     path("logout/", logout, name="logout"),
-    path("users-cart/", users_cart, name="users-cart"),
+    path("users-cart/", UserCartView.as_view(), name="users-cart"),
 ]
