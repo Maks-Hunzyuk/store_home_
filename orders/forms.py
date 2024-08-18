@@ -1,4 +1,6 @@
+import re
 from django import forms
+from django.forms import ValidationError
 
 
 class CreateOrderForm(forms.Form):
@@ -16,4 +18,13 @@ class CreateOrderForm(forms.Form):
         ("0", False),
         ("1", True)
     ])
+
+    def clean_phone_number(self):
+        data = self.changed_data["phone_number"]
+        if not data.isdigit():
+            raise ValidationError("Номер должен содержать только цифры")
+        pattern = re.compile(r"^\d{10}$")
+        if not pattern.match(data):
+            raise ValidationError("Неверный формат ввода")
+        return data
 
